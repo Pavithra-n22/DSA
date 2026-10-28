@@ -1,0 +1,19 @@
+ {  
+        
+        HashMap<Integer,Integer> hmap = new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+            {
+                hmap.put(nums[i], i);
+            }
+        for(int i=0;i<nums.length;i++)
+            {
+                int rem = target-(nums[i]);
+               if( hmap.containsKey(rem) && hmap.get(rem)>i)
+               {
+                   System.out.println(i+","+ hmap.get(rem));
+                   
+               }
+            }
+        
+        
+    }
