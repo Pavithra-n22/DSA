@@ -1,0 +1,45 @@
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.HashSet;
+import java.util.Stack; 
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+class Main {
+  public static void product(int[] arr)
+    {
+        int[] prev=new int[arr.length];
+        int[] post=new int[arr.length];
+        int[] ans=new int[arr.length];
+        int left=1;
+        int right=arr.length-2;
+        prev[0]=1;
+        post[arr.length-1]=1;
+        
+        for(int i=1;i<arr.length;i++)
+            {   if(left<arr.length && right>=0 )
+            {
+                prev[left]=prev[left-1]*arr[i-1];
+                left++;
+                post[right]= post[right+1]*arr[right+1];
+                right--;
+            }
+            }
+       
+        for(int i=0;i<arr.length;i++)
+            {
+                ans[i]=post[i]*prev[i];
+                 System.out.println(ans[i]);
+            }
+    }
+
+    
+    public static void main(String[] args) {
+    int[] arr={1,2,3,4};
+        product(arr);
+    
+       }}
