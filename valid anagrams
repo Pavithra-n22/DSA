@@ -1,0 +1,30 @@
+class Main {
+    public static boolean anagrams(String s1, String s2)
+    {
+        int[] arr1 = new int[26];
+        for(int i=0;i<s1.length();i++)
+            {
+                arr1[s1.charAt(i)-'a']++;
+                arr1[s2.charAt(i)-'a']--;
+            }
+        for(int x : arr1)
+            {
+            if(x==1){
+                     return false;  
+                 }
+               
+                
+            }
+        return true;
+    }
+    
+    
+    public static void main(String[] args) {
+        String s1 ="cat";
+        String s2="tac";
+        boolean res=   anagrams(s1,s2);
+        System.out.println(res);
+        
+            
+}
+}
