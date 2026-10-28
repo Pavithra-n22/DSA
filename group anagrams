@@ -1,0 +1,28 @@
+class Main {
+    public static void groupanagram(String[] str)
+    {  
+       
+        HashMap<String, List<String>> hmap = new HashMap<>();
+        for(int i=0;i<str.length;i++)
+            {
+                char[] ch = str[i].toCharArray();
+                Arrays.sort(ch);
+                String s = new String(ch);
+                if(hmap.containsKey(s))
+                {
+                    List<String> ss= hmap.get(s);
+                    ss.add(str[i]);
+                }
+                else
+                { 
+                    List<String> ls = new ArrayList<>();
+                    ls.add(str[i]);
+                    hmap.put(s,ls);
+                    
+                }
+            }
+        System.out.println(hmap);
+       
+    }
+        
+    
