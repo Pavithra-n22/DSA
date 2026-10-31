@@ -1,0 +1,28 @@
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
+import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
+class Main {
+    public static void main(String[] args) {
+      String str="3#cat4#gats";
+        int i=0;
+       ArrayList<String> as= new ArrayList<>();
+        while(i<str.length())
+            {
+                 int num=0;
+                while(str.charAt(i)!='#')
+                {
+                    num=num*10+(str.charAt(i)-'0');
+                    i++;
+                }
+                i++;
+                String word=str.substring(i,num+i);
+                as.add(word);
+                
+                
+                i=i+num;
+            }
+        System.out.println(as);
+    }
+}
