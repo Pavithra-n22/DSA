@@ -1,0 +1,60 @@
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
+//encode and decode 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+        int[] arr= {-1,0,1,2,-1,-4};
+         int target=0;
+         Arrays.sort(arr);
+         threesum(arr,target);
+                                    
+    }
+       public static void threesum(int[] arr,int target)
+          {
+               for(int i=0;i<arr.length-2;i++)
+                {     if (i > 0 && arr[i] == arr[i - 1]) {
+                           continue;
+                           }
+                        int pos=i;
+                       int fixed = arr[i];
+                       twosum(fixed,arr,target,pos);                         
+                }
+           }
+       public static void twosum(int fixed, int[] arr, int target,int pos)
+       {     int left =pos+1; int right=arr.length-1;
+             while(left<right)
+              {
+                        if(fixed+arr[left]+arr[right]>target)
+                        {
+                                 right--;                       
+                        }
+                         else if(fixed+arr[left]+arr[right]<target)
+                         {
+                                left++;                         
+                         }
+                         else
+                         {    if(left!=right && left!=pos && pos!=right){
+                                  System.out.println(fixed+","+arr[left]+","+arr[right]);                                                       left++;
+                                  right--;                           
+                         }else{
+                                left++;
+                                right--;                             
+                         }
+                              
+                                                     
+                         }
+               }
+                                                                
+            }
+        
+
+
+
+        
+}
