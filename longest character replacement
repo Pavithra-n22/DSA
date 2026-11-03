@@ -1,0 +1,42 @@
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+     String s = "AABABBA";
+      longestchracters(s);                              
+    }
+    public static void longestchracters(String s)
+    {
+       int[] ch = new int[26];
+        int left=0;
+        int windowlen=0;int k=2;
+        int freq=0;
+        int ans=0;
+        for(int right=0;right<s.length();right++)
+            {
+                freq=Math.max(freq,++ch[s.charAt(right)-'A']);
+                if((right-left+1)-freq<=k)
+                {
+                    windowlen=right-left;
+                    ans=Math.max(windowlen, right-left+1);
+                    right++;
+                }
+                else
+                {
+                    freq=Math.max(freq,--ch[s.charAt(left)-'A']);
+                    left++;
+                }
+            }
+        System.out.println(ans);
+            
+            
+    }
+        
+}
