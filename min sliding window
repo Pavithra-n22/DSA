@@ -1,0 +1,51 @@
+// Online Java Compiler (Editor)
+// Write and run Java online using this editor.
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+    String s1 ="ABC";   String s2 = "ADOBECODEBANC"; 
+      minstring(s1,s2);                              
+    }
+    public static void minstring(String s1, String s2)
+    {  int missing =s1.length();
+        int[] arr = new int[128];
+        for(int i=0;i<s1.length();i++)
+            {
+                arr[s1.charAt(i)]++;
+            }
+        int right=0;int windowlen=0; int minlen=Integer.MAX_VALUE;
+       int startIndex=0;int left=0;
+        for(right=0;right<s2.length();right++)
+            {
+                char current=s2.charAt(right);
+                if(arr[current]>0)
+                {
+                    missing--;
+                }
+                arr[current]--;
+                while(missing==0)
+                {
+                    windowlen=right-left+1;
+                    minlen=Math.min(windowlen,minlen);
+                    startIndex=left;
+                    
+                
+               char leftchar= s2.charAt(left);
+                arr[leftchar]++;
+                if(arr[leftchar]>0)
+                {
+                    missing++;
+                }
+                left++;
+            }
+            }
+       System.out.println(s2.substring(startIndex,minlen+startIndex));
+    } 
+    
+}
